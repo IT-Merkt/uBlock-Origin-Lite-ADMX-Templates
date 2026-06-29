@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions"
+                           revision="1.0"
+                           schemaVersion="1.0">
+  <displayName>uBlock Origin Lite policies</displayName>
+  <description>Administrative templates for uBlock Origin Lite managed settings.</description>
+  <resources>
+    <stringTable>
+      <string id="SUPPORTED_uBOL_2025_4_13">uBlock Origin Lite 2025.4.13.1188 or newer</string>
+      <string id="uBlockOriginLiteCategory">uBlock Origin Lite</string>
+      <string id="MicrosoftEdge">Microsoft Edge</string>
+      <string id="GoogleChrome">Google Chrome</string>
+      <string id="DefaultFiltering">Set default filtering mode</string>
+      <string id="FilteringNone">No filtering</string>
+      <string id="FilteringBasic">Basic</string>
+      <string id="FilteringOptimal">Optimal</string>
+      <string id="FilteringComplete">Complete</string>
+      <string id="DefaultFiltering_Help">Sets the default filtering mode for uBlock Origin Lite.
+
+Allowed values:
+- none: no filtering
+- basic: basic network filtering
+- optimal: enhanced network filtering and specific extended filtering
+- complete: additionally generic extended filtering
+
+Since uBlock Origin Lite 2025.4.13.1188, "optimal" is the default value. Per-site filtering modes can override the default unless this feature is blocked through "Disable user-facing features".</string>
+      <string id="DisabledFeatures">Disable user-facing features</string>
+      <string id="DisabledFeatures_Help">Disables selected features in the user interface.
+
+The value must be entered as a single-line JSON array. Multiple entries must be separated exactly by comma plus space.
+
+Supported entries:
+- dashboard: prevent changes through the dashboard
+- develop: prevent developer mode from being enabled
+- filteringMode: prevent changes to the global and per-site filtering mode
+- picker: disable the tool used to create custom filters
+- zapper: disable the tool used to temporarily remove page elements
+
+Example:
+["dashboard"]
+
+Note: "filteringMode" also prevents users from setting the filtering mode for a single website to "No filtering".</string>
+      <string id="DisableFirstRunPage">Disable first-run page</string>
+      <string id="DisableFirstRunPage_Help">Prevents uBlock Origin Lite from showing the first-run page after installation.</string>
+      <string id="NoFiltering">Set websites without filtering</string>
+      <string id="NoFiltering_Help">Sets hostnames on which uBlock Origin Lite is fully disabled.
+
+The value must be entered as a single-line JSON array. Multiple entries must be separated exactly by comma plus space. Only hostnames are supported, not full URLs.
+
+Prefix a hostname with a minus sign to remove it from the managed list. Use "-*" to remove all existing entries.
+
+Example:
+["example.com", "mycorp.test"]</string>
+      <string id="PopupBlockMode">Enable popup blocking</string>
+      <string id="PopupBlockMode_Help">Enables or disables blocking of unwanted popup tabs and windows. This feature is enabled by default.</string>
+      <string id="Rulesets">Set filter rulesets</string>
+      <string id="Rulesets_Help">Enables or disables rulesets bundled with uBlock Origin Lite.
+
+The value must be entered as a single-line JSON array. Multiple entries must be separated exactly by comma plus space.
+
+Each ruleset ID is prefixed with "+" to enable it or "-" to disable it. The value "-*" disables all non-default rulesets except those enabled by this policy. Rulesets specified by policy cannot be enabled or disabled by users.
+
+Example from the official uBOL documentation:
+["-*", "+default", "+adguard-spyware-url", "+annoyances-cookies"]
+
+Common ruleset IDs:
+- +default: keep default rulesets enabled
+- +annoyances-cookies: EasyList/uBO - Cookie Notices
+- +adguard-spyware-url: AdGuard/uBO - URL Tracking Protection
+
+Valid IDs must be taken from the current uBlock Origin Lite ruleset-details.json. Browser-engine limits for the maximum number of enabled rulesets also apply.</string>
+      <string id="ShowBlockedCount">Show blocked request count</string>
+      <string id="ShowBlockedCount_Help">Shows or hides the number of blocked requests on the uBlock Origin Lite toolbar icon. This feature is enabled by default.</string>
+      <string id="StrictBlockMode">Enable strict blocking</string>
+      <string id="StrictBlockMode_Help">Enables or disables strict blocking for potentially unwanted destination pages. This feature is enabled by default.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DefaultFiltering"><dropdownList refId="DefaultFilteringMode">Filtering mode:</dropdownList></presentation>
+      <presentation id="DisabledFeatures"><textBox refId="DisabledFeaturesValue"><label>Disabled features as JSON array:</label></textBox></presentation>
+      <presentation id="NoFiltering"><textBox refId="NoFilteringValue"><label>Hostnames as JSON array:</label></textBox></presentation>
+      <presentation id="Rulesets"><textBox refId="RulesetsValue"><label>Rulesets as JSON array:</label></textBox></presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

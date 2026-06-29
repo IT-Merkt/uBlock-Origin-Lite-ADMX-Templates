@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions"
+                           revision="1.0"
+                           schemaVersion="1.0">
+  <displayName>uBlock Origin Lite Richtlinien</displayName>
+  <description>Administrative Vorlagen für die verwalteten Einstellungen von uBlock Origin Lite.</description>
+  <resources>
+    <stringTable>
+      <string id="SUPPORTED_uBOL_2025_4_13">uBlock Origin Lite 2025.4.13.1188 oder neuer</string>
+      <string id="uBlockOriginLiteCategory">uBlock Origin Lite</string>
+      <string id="MicrosoftEdge">Microsoft Edge</string>
+      <string id="GoogleChrome">Google Chrome</string>
+      <string id="DefaultFiltering">Standard-Filtermodus festlegen</string>
+      <string id="FilteringNone">Keine Filterung</string>
+      <string id="FilteringBasic">Einfach</string>
+      <string id="FilteringOptimal">Optimal</string>
+      <string id="FilteringComplete">Vollständig</string>
+      <string id="DefaultFiltering_Help">Legt den standardmässigen Filtermodus von uBlock Origin Lite fest.
+
+Zulässige Werte:
+- none: keine Filterung
+- basic: grundlegende Netzwerkfilterung
+- optimal: erweiterte Netzwerkfilterung und spezifische erweiterte Filterung
+- complete: zusätzlich generische erweiterte Filterung
+
+Seit uBlock Origin Lite 2025.4.13.1188 ist "optimal" der Standardwert. Websitespezifische Filtermodi können den Standardwert überschreiben, sofern diese Funktion nicht über "Benutzerfunktionen deaktivieren" gesperrt wird.</string>
+      <string id="DisabledFeatures">Benutzerfunktionen deaktivieren</string>
+      <string id="DisabledFeatures_Help">Deaktiviert ausgewählte Funktionen in der Benutzeroberfläche.
+
+Der Wert muss als JSON-Array in einer Zeile angegeben werden. Mehrere Einträge müssen exakt durch Komma und Leerzeichen getrennt werden.
+
+Unterstützte Einträge:
+- dashboard: Änderungen über das Dashboard verhindern
+- develop: Entwicklermodus verhindern
+- filteringMode: Änderungen am globalen und websitespezifischen Filtermodus verhindern
+- picker: Werkzeug zum Erstellen benutzerdefinierter Filter deaktivieren
+- zapper: Werkzeug zum temporären Entfernen von Seitenelementen deaktivieren
+
+Beispiel:
+["dashboard"]
+
+Hinweis: "filteringMode" verhindert auch, dass Benutzer den Filtermodus für eine einzelne Webseite auf "Keine Filterung" stellen.</string>
+      <string id="DisableFirstRunPage">Ersteinrichtungsseite deaktivieren</string>
+      <string id="DisableFirstRunPage_Help">Verhindert, dass uBlock Origin Lite nach der Installation die Ersteinrichtungsseite anzeigt.</string>
+      <string id="NoFiltering">Websites ohne Filterung festlegen</string>
+      <string id="NoFiltering_Help">Legt Hostnamen fest, auf denen uBlock Origin Lite vollständig deaktiviert wird.
+
+Der Wert muss als JSON-Array in einer Zeile angegeben werden. Mehrere Einträge müssen exakt durch Komma und Leerzeichen getrennt werden. Es sind nur Hostnamen zulässig, keine vollständigen URLs.
+
+Ein vorangestelltes Minus entfernt einen Hostnamen aus der verwalteten Liste. Der Wert "-*" entfernt alle vorhandenen Einträge.
+
+Beispiel:
+["example.com", "mycorp.test"]</string>
+      <string id="PopupBlockMode">Popup-Blockierung aktivieren</string>
+      <string id="PopupBlockMode_Help">Aktiviert oder deaktiviert die Blockierung unerwünschter Popup-Tabs und -Fenster. Die Funktion ist standardmässig aktiviert.</string>
+      <string id="Rulesets">Filterlisten festlegen</string>
+      <string id="Rulesets_Help">Aktiviert oder deaktiviert die in uBlock Origin Lite enthaltenen Rulesets.
+
+Der Wert muss als JSON-Array in einer Zeile angegeben werden. Mehrere Einträge müssen exakt durch Komma und Leerzeichen getrennt werden.
+
+Jeder Ruleset-ID wird ein "+" zum Aktivieren oder ein "-" zum Deaktivieren vorangestellt. Der Wert "-*" deaktiviert alle nicht standardmässigen Rulesets, ausser den durch diese Richtlinie aktivierten Rulesets. Durch die Richtlinie festgelegte Rulesets können Benutzer nicht selbst aktivieren oder deaktivieren.
+
+Beispiel nach offizieller uBOL-Dokumentation:
+["-*", "+default", "+adguard-spyware-url", "+annoyances-cookies"]
+
+Häufig verwendete Ruleset-IDs:
+- +default: Standard-Rulesets aktiv halten
+- +annoyances-cookies: EasyList/uBO - Cookie Notices
+- +adguard-spyware-url: AdGuard/uBO - URL Tracking Protection
+
+Die gültigen IDs müssen der aktuellen ruleset-details.json von uBlock Origin Lite entnommen werden. Zusätzlich gelten die maximal zulässigen Ruleset-Grenzen der jeweiligen Browser-Engine.</string>
+      <string id="ShowBlockedCount">Anzahl blockierter Anfragen anzeigen</string>
+      <string id="ShowBlockedCount_Help">Zeigt oder verbirgt die Anzahl blockierter Anfragen auf dem Symbol von uBlock Origin Lite. Die Anzeige ist standardmässig aktiviert.</string>
+      <string id="StrictBlockMode">Strikte Blockierung aktivieren</string>
+      <string id="StrictBlockMode_Help">Aktiviert oder deaktiviert die strikte Blockierung potenziell unerwünschter Zielseiten. Die Funktion ist standardmässig aktiviert.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DefaultFiltering"><dropdownList refId="DefaultFilteringMode">Filtermodus:</dropdownList></presentation>
+      <presentation id="DisabledFeatures"><textBox refId="DisabledFeaturesValue"><label>Deaktivierte Funktionen als JSON-Array:</label></textBox></presentation>
+      <presentation id="NoFiltering"><textBox refId="NoFilteringValue"><label>Hostnamen als JSON-Array:</label></textBox></presentation>
+      <presentation id="Rulesets"><textBox refId="RulesetsValue"><label>Rulesets als JSON-Array:</label></textBox></presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

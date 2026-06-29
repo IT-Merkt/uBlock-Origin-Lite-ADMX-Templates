@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="uBlockOriginLite" namespace="Community.uBlockOriginLite" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_uBOL_2025_4_13" displayName="$(string.SUPPORTED_uBOL_2025_4_13)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="uBlockOriginLite" displayName="$(string.uBlockOriginLiteCategory)" />
+    <category name="MicrosoftEdge" displayName="$(string.MicrosoftEdge)">
+      <parentCategory ref="uBlockOriginLite" />
+    </category>
+    <category name="GoogleChrome" displayName="$(string.GoogleChrome)">
+      <parentCategory ref="uBlockOriginLite" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="EdgeDefaultFiltering" class="Both" displayName="$(string.DefaultFiltering)" explainText="$(string.DefaultFiltering_Help)" presentation="$(presentation.DefaultFiltering)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements>
+        <enum id="DefaultFilteringMode" valueName="defaultFiltering" required="true">
+          <item displayName="$(string.FilteringNone)"><value><string>none</string></value></item>
+          <item displayName="$(string.FilteringBasic)"><value><string>basic</string></value></item>
+          <item displayName="$(string.FilteringOptimal)"><value><string>optimal</string></value></item>
+          <item displayName="$(string.FilteringComplete)"><value><string>complete</string></value></item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="EdgeDisabledFeatures" class="Both" displayName="$(string.DisabledFeatures)" explainText="$(string.DisabledFeatures_Help)" presentation="$(presentation.DisabledFeatures)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="DisabledFeaturesValue" valueName="disabledFeatures" required="true" /></elements>
+    </policy>
+    <policy name="EdgeDisableFirstRunPage" class="Both" displayName="$(string.DisableFirstRunPage)" explainText="$(string.DisableFirstRunPage_Help)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" valueName="disableFirstRunPage">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="EdgeNoFiltering" class="Both" displayName="$(string.NoFiltering)" explainText="$(string.NoFiltering_Help)" presentation="$(presentation.NoFiltering)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="NoFilteringValue" valueName="noFiltering" required="true" /></elements>
+    </policy>
+    <policy name="EdgePopupBlockMode" class="Both" displayName="$(string.PopupBlockMode)" explainText="$(string.PopupBlockMode_Help)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" valueName="popupBlockMode">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="EdgeRulesets" class="Both" displayName="$(string.Rulesets)" explainText="$(string.Rulesets_Help)" presentation="$(presentation.Rulesets)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="RulesetsValue" valueName="rulesets" required="true" /></elements>
+    </policy>
+    <policy name="EdgeShowBlockedCount" class="Both" displayName="$(string.ShowBlockedCount)" explainText="$(string.ShowBlockedCount_Help)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" valueName="showBlockedCount">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="EdgeStrictBlockMode" class="Both" displayName="$(string.StrictBlockMode)" explainText="$(string.StrictBlockMode_Help)" key="Software\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" valueName="strictBlockMode">
+      <parentCategory ref="MicrosoftEdge" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="ChromeDefaultFiltering" class="Both" displayName="$(string.DefaultFiltering)" explainText="$(string.DefaultFiltering_Help)" presentation="$(presentation.DefaultFiltering)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements>
+        <enum id="DefaultFilteringMode" valueName="defaultFiltering" required="true">
+          <item displayName="$(string.FilteringNone)"><value><string>none</string></value></item>
+          <item displayName="$(string.FilteringBasic)"><value><string>basic</string></value></item>
+          <item displayName="$(string.FilteringOptimal)"><value><string>optimal</string></value></item>
+          <item displayName="$(string.FilteringComplete)"><value><string>complete</string></value></item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ChromeDisabledFeatures" class="Both" displayName="$(string.DisabledFeatures)" explainText="$(string.DisabledFeatures_Help)" presentation="$(presentation.DisabledFeatures)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="DisabledFeaturesValue" valueName="disabledFeatures" required="true" /></elements>
+    </policy>
+    <policy name="ChromeDisableFirstRunPage" class="Both" displayName="$(string.DisableFirstRunPage)" explainText="$(string.DisableFirstRunPage_Help)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" valueName="disableFirstRunPage">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="ChromeNoFiltering" class="Both" displayName="$(string.NoFiltering)" explainText="$(string.NoFiltering_Help)" presentation="$(presentation.NoFiltering)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="NoFilteringValue" valueName="noFiltering" required="true" /></elements>
+    </policy>
+    <policy name="ChromePopupBlockMode" class="Both" displayName="$(string.PopupBlockMode)" explainText="$(string.PopupBlockMode_Help)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" valueName="popupBlockMode">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="ChromeRulesets" class="Both" displayName="$(string.Rulesets)" explainText="$(string.Rulesets_Help)" presentation="$(presentation.Rulesets)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <elements><text id="RulesetsValue" valueName="rulesets" required="true" /></elements>
+    </policy>
+    <policy name="ChromeShowBlockedCount" class="Both" displayName="$(string.ShowBlockedCount)" explainText="$(string.ShowBlockedCount_Help)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" valueName="showBlockedCount">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+    <policy name="ChromeStrictBlockMode" class="Both" displayName="$(string.StrictBlockMode)" explainText="$(string.StrictBlockMode_Help)" key="Software\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" valueName="strictBlockMode">
+      <parentCategory ref="GoogleChrome" />
+      <supportedOn ref="SUPPORTED_uBOL_2025_4_13" />
+      <enabledValue><decimal value="1" /></enabledValue>
+      <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>
